@@ -10,7 +10,7 @@ function DetalleProducto() {
 
     if (!producto) {
         return (
-            <main className="container py-5">
+            <main className="container py-5 text-center">
                 <h1>Producto no encontrado</h1>
                 <p>Revisa el catálogo e inténtalo nuevamente.</p>
 
@@ -22,7 +22,7 @@ function DetalleProducto() {
     }
 
     return (
-        <main className="container py-5">
+        <main className="container py-5 text-center">
             <Link to="/productos" className = "btn btn-outline-secondary mb-4">
             Volver al catálogo</Link>
 
