@@ -1,45 +1,21 @@
-import Boton from "../atomos/Boton";
+import type { Producto } from '../../datos/productos';
+import { Boton } from '../atomos/Boton';
 
-interface CardProps {
-    id: number;
-    titulo: string;
-    descripcion: string;
-    precio: number;
-    imagen: string;
+interface CardProductoProps {
+  producto: Producto;
 }
 
-function CardProducto({ id, titulo, descripcion, precio, imagen }: CardProps){
-    return(
-        <div className="card h-100">
-
-            <img
-                src={imagen}
-                className="card-img-top"
-                alt={titulo}
-                style={{ height: '200px', objectFit: 'contain'}}
-            />
-            {/*con este className del div organizamos el contenido de forma vertical */}
-            <div className="card-body d-flex flex-column">
-                <h5 className="card-title">
-                    {titulo}
-                </h5>
-
-                <p className="card-text">
-                    {descripcion}
-                </p>
-
-                <p className="card-text fw-bold">
-                    ${precio.toLocaleString("es-CL")}
-                </p>
-
-                {/*y con este div hacemos que el boton baje de igual manera para todos */}
-                <div className="mt-auto">
-                    <Boton id={id} />
-                </div>
-            </div>
-
+export const CardProducto = ({ producto }: CardProductoProps) => {
+  return (
+    <div className="card h-100 shadow-sm">
+      <img src={producto.imagen} className="card-img-top" alt={producto.titulo} />
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{producto.titulo}</h5>
+        <p className="card-text text-muted">{producto.categoria}</p>
+        <div className="mt-auto">
+          <Boton to={`/producto/${producto.id}`} texto="Ver detalle" />
         </div>
-    )
-}
-
-export default CardProducto
+      </div>
+    </div>
+  );
+};

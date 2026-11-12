@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Inicio from './paginas/Inicio'
-import Productos from './paginas/Productos'
+import { Productos } from './paginas/Productos'
 import NavBar from './componentes/organismos/NavBar'
-import DetalleProducto from './paginas/DetalleProducto'
+import { DetalleProducto } from './paginas/DetalleProducto'
 import Contacto from './paginas/Contacto'
 import Login from './paginas/Login'
 import Retiro from "./paginas/Retiro";
@@ -39,11 +39,11 @@ function App() {
           element={<Login />}
         />
 
-        <Route 
-          path="/retiro" 
-          element={<Retiro />} 
-          />
-        
+        <Route
+          path="/retiro"
+          element={<Retiro />}
+        />
+
       </Routes>
     </>
   )
