@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import productos from "../datos/productos"
 
 function DetalleProducto() {
@@ -13,12 +13,18 @@ function DetalleProducto() {
             <main className="container py-5">
                 <h1>Producto no encontrado</h1>
                 <p>Revisa el catálogo e inténtalo nuevamente.</p>
+
+                <Link to="/productos" className="btn btn-primary mt-3">
+                Volver al catálogo
+                </Link>
             </main>
         )
     }
 
     return (
         <main className="container py-5">
+            <Link to="/productos" className = "btn btn-outline-secondary mb-4">
+            Volver al catálogo</Link>
 
             <h1>Detalle del producto</h1>
 
