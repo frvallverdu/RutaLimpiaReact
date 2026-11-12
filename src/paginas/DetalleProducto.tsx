@@ -1,47 +1,37 @@
-import { Link, useParams } from "react-router-dom"
-import productos from "../datos/productos"
+import { useParams } from 'react-router-dom';
+import { productos } from '../datos/productos';
+import { Boton } from '../componentes/atomos/Boton';
 
-function DetalleProducto() {
-    // Obtenemos el id que viene de la URL
-    const { id } = useParams()
+export const DetalleProducto = () => {
+  const { id } = useParams<{ id: string }>();
 
-    // Buscamos el producto que corresponde al id recibido
-    const producto = productos.find((producto) => producto.id === Number(id))
+  const producto = productos.find(p => p.id === id);
 
-    if (!producto) {
-        return (
-            <main className="container py-5 text-center">
-                <h1>Producto no encontrado</h1>
-                <p>Revisa el catálogo e inténtalo nuevamente.</p>
-
-                <Link to="/productos" className="btn btn-primary mt-3">
-                Volver al catálogo
-                </Link>
-            </main>
-        )
-    }
-
+  if (!producto) {
     return (
-        <main className="container py-5 text-center">
-            <Link to="/productos" className = "btn btn-outline-secondary mb-4">
-            Volver al catálogo</Link>
+      <div className="container my-5 text-center">
+        <h2>Producto no encontrado</h2>
+        <p>El producto que buscas no existe o ha sido eliminado.</p>
+        <Boton to="/productos" texto="Volver al catálogo" claseAdicional="btn-danger" />
+      </div>
+    );
+  }
 
-            <h1>Detalle del producto</h1>
-
-            <img
-                src={producto.imagen}
-                alt={producto.titulo}
-                style={{ width: '300px', maxWidth: '100%', objectFit: 'contain' }}
-            />
-
-            <h2>{producto.titulo}</h2>
-
-            <p>{producto.descripcion}</p>
-
-            <p>${producto.precio.toLocaleString("es-CL")}</p>
-
-        </main>
-    )
-}
-
-export default DetalleProducto
+  return (
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-md-6">
+          <img src={producto.imagen} alt={producto.titulo} className="img-fluid rounded shadow" />
+        </div>
+        <div className="col-md-6 d-flex flex-column justify-content-center">
+          <h2>{producto.titulo}</h2>
+          <h5 className="text-muted">{producto.categoria}</h5>
+          <p className="mt-4">{producto.descripcion}</p>
+          <div className="mt-4">
+            <Boton to="/productos" texto="Volver al catálogo" claseAdicional="btn-secondary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
