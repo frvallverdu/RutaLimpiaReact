@@ -1,47 +1,44 @@
-import { Link, useParams } from "react-router-dom"
-import productos from "../datos/productos"
+import { useParams } from "react-router-dom";
+import { productos } from "../datos/productos";
+import { Boton } from "../componentes/atomos/Boton";
 
-function DetalleProducto() {
-    // Obtenemos el id que viene de la URL
-    const { id } = useParams()
+export const DetalleProducto = () => {
+  const { id } = useParams<{ id: string }>();
+  const producto = productos.find((item) => item.id === id);
 
-    // Buscamos el producto que corresponde al id recibido
-    const producto = productos.find((producto) => producto.id === Number(id))
-
-    if (!producto) {
-        return (
-            <main className="container py-5 text-center">
-                <h1>Producto no encontrado</h1>
-                <p>Revisa el catálogo e inténtalo nuevamente.</p>
-
-                <Link to="/productos" className="btn btn-primary mt-3">
-                Volver al catálogo
-                </Link>
-            </main>
-        )
-    }
-
+  if (!producto) {
     return (
-        <main className="container py-5 text-center">
-            <Link to="/productos" className = "btn btn-outline-secondary mb-4">
-            Volver al catálogo</Link>
+      <main className="container py-5 text-center">
+        <div className="form-panel mx-auto" style={{ maxWidth: "620px" }}>
+          <h1 className="h3 fw-bold">Producto no encontrado</h1>
+          <p className="text-secondary mb-4">El producto no existe o ya no está disponible.</p>
+          <Boton to="/productos" texto="Volver al catálogo" claseAdicional="btn-success" />
+        </div>
+      </main>
+    );
+  }
 
-            <h1>Detalle del producto</h1>
-
+  return (
+    <main className="container py-4 py-md-5">
+      <article className="detail-panel mx-auto" style={{ maxWidth: "1000px" }}>
+        <div className="row g-0 align-items-stretch">
+          <div className="col-12 col-md-6 detail-image-wrap">
             <img
-                src={producto.imagen}
-                alt={producto.titulo}
-                style={{ width: '300px', maxWidth: '100%', objectFit: 'contain' }}
+              src={producto.imagen}
+              alt={producto.titulo}
+              className="img-fluid detail-image"
             />
-
-            <h2>{producto.titulo}</h2>
-
-            <p>{producto.descripcion}</p>
-
-            <p>${producto.precio.toLocaleString("es-CL")}</p>
-
-        </main>
-    )
-}
-
-export default DetalleProducto
+          </div>
+          <div className="col-12 col-md-6 d-flex align-items-center">
+            <div className="p-4 p-lg-5">
+              <span className="badge rounded-pill text-bg-success mb-3">{producto.categoria}</span>
+              <h1 className="h2 fw-bold mb-3">{producto.titulo}</h1>
+              <p className="text-secondary mb-4">{producto.descripcion}</p>
+              <Boton to="/productos" texto="Volver al catálogo" claseAdicional="btn-success" />
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  );
+};

@@ -1,23 +1,22 @@
-import CardProducto from "../componentes/moleculas/CardProducto";
-import productos from "../datos/productos";
+import { productos } from "../datos/productos";
+import { CardProducto } from "../componentes/moleculas/CardProducto";
 
-function Productos() {
+export const Productos = () => {
   return (
-    <main className="container py-4">
-      <h1 className="mb-2">Productos para reciclaje</h1>
-      <p className="text-secondary mb-4">
-        Encuentra contenedores, composteras y herramientas para gestionar tus residuos.
-      </p>
+    <main className="container py-4 py-md-5">
+      <header className="page-heading">
+        <p className="home-eyebrow mb-2">Elige una alternativa sostenible</p>
+        <h1 className="h2 fw-bold mb-2">Catálogo de productos</h1>
+        <p>Artículos para reducir residuos y hacer más fácil el reciclaje en casa.</p>
+      </header>
 
-      <div className="row g-4">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 g-lg-4 align-items-stretch">
         {productos.map((producto) => (
-          <div className="col-12 col-sm-6 col-lg-4" key={producto.id}>
-            <CardProducto {...producto} />
+          <div className="col" key={producto.id}>
+            <CardProducto producto={producto} />
           </div>
         ))}
       </div>
     </main>
   );
-}
-
-export default Productos;
+};

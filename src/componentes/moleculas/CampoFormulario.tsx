@@ -11,7 +11,7 @@ type Props = {
 function CampoFormulario({ etiqueta, tipo, nombre, valor, alCambiar}: Props) {
     return (
         <div className="mb-3">
-            <label className="form-label">
+            <label className="form-label" htmlFor={nombre}>
                 {etiqueta}
             </label>
 

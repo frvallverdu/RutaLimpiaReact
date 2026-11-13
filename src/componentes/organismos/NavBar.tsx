@@ -9,10 +9,10 @@ function NavBar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid px-4">
-        <Link className="navbar-brand" to="/" onClick={cerrarMenu}>
-          Mi tienda
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark site-navbar">
+      <div className="container">
+        <Link className="navbar-brand fw-bold" to="/" onClick={cerrarMenu}>
+          Ruta Limpia
         </Link>
 
         <button
@@ -30,12 +30,12 @@ function NavBar() {
           id="menu-principal"
           className={`collapse navbar-collapse ${menuAbierto ? "show" : ""}`}
         >
-          <div className="navbar-nav ms-auto">
+          <div className="navbar-nav ms-auto gap-lg-2">
             <NavLink className="nav-link" to="/" onClick={cerrarMenu}>Inicio</NavLink>
-            <NavLink className="nav-link" to="/retiro" onClick={cerrarMenu}>Cotizar retiro</NavLink>
-            <NavLink className="nav-link" to="/login" onClick={cerrarMenu}>Login</NavLink>
             <NavLink className="nav-link" to="/productos" onClick={cerrarMenu}>Productos</NavLink>
+            <NavLink className="nav-link" to="/retiro" onClick={cerrarMenu}>Cotizar retiro</NavLink>
             <NavLink className="nav-link" to="/contacto" onClick={cerrarMenu}>Contacto</NavLink>
+            <NavLink className="nav-link" to="/login" onClick={cerrarMenu}>Iniciar sesión</NavLink>
           </div>
         </div>
       </div>

@@ -1,18 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 interface BotonProps {
-    id: number;
+  to: string;
+  texto: string;
+  claseAdicional?: string;
 }
 
-function Boton({id}: BotonProps){
-    return(
-        <Link
-            to={`/producto/${id}`}
-            className="btn btn-primary"
-        >
-            Ver producto
-        </Link>
-    )
-}
-
-export default Boton
+export const Boton = ({ to, texto, claseAdicional = 'btn-primary' }: BotonProps) => {
+  return (
+    <Link to={to} className={`btn ${claseAdicional}`}>
+      {texto}
+    </Link>
+  );
+};

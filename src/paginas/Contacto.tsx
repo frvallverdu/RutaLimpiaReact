@@ -1,25 +1,16 @@
-import FormularioContacto from "../componentes/organismos/FormularioContacto"
+import FormularioContacto from "../componentes/organismos/FormularioContacto";
 
 function Contacto() {
-    return (
-        <div className="container mt-5">
-
-            <div className="row justify-content-center">
-
-                <div className="col-12 col-md-8 col-lg-6">
-
-                    <div className="card shadow-sm p-4">
-
-                        <h2 className="mb-4">
-                            Formulario de contacto
-                        </h2>
-
-                        <FormularioContacto />
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+  return (
+    <main className="container py-4 py-md-5">
+      <section className="form-panel mx-auto" style={{ maxWidth: "680px" }}>
+        <p className="home-eyebrow mb-2">Estamos para ayudarte</p>
+        <h1 className="h2 fw-bold mb-2">Contacto</h1>
+        <p className="text-secondary mb-4">Déjanos tu mensaje y nos pondremos en contacto contigo.</p>
+        <FormularioContacto />
+      </section>
+    </main>
+  );
 }
 
-export default Contacto
+export default Contacto;
