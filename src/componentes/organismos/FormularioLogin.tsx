@@ -48,8 +48,8 @@ function FormularioLogin() {
                 alCambiar={setContrasena}
             />
 
-            <button type="submit" className="btn btn-primary w-100 mt-2">
-                Login
+            <button type="submit" className="btn btn-success w-100 mt-2">
+                Iniciar sesión
             </button>
         </form>
     )
