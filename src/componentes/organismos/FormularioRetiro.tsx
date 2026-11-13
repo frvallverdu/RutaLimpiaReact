@@ -68,7 +68,7 @@ function FormularioRetiro() {
                 alCambiar={setCorreo}
             />
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-success w-100">
                 Cotizar retiro
             </button>
 

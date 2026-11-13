@@ -41,7 +41,7 @@ function FormularioContacto() {
             />
 
             <CampoFormulario
-                etiqueta="Correo electronico"
+                etiqueta="Correo electrónico"
                 tipo="email"
                 nombre="correo"
                 valor={correo}
@@ -56,7 +56,7 @@ function FormularioContacto() {
                 alCambiar={setMensaje}
             />
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success w-100">
                 Enviar mensaje
             </button>
         </form>

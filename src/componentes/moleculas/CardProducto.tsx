@@ -7,13 +7,17 @@ interface CardProductoProps {
 
 export const CardProducto = ({ producto }: CardProductoProps) => {
   return (
-    <div className="card h-100 shadow-sm">
-      <img src={producto.imagen} className="card-img-top" alt={producto.titulo} />
-      <div className="card-body d-flex flex-column">
-        <h5 className="card-title">{producto.titulo}</h5>
-        <p className="card-text text-muted">{producto.categoria}</p>
-        <div className="mt-auto">
-          <Boton to={`/producto/${producto.id}`} texto="Ver detalle" />
+    <div className="card h-100 product-card">
+      <img
+        src={producto.imagen}
+        className="card-img-top imagen-producto"
+        alt={producto.titulo}
+      />
+      <div className="card-body d-flex flex-column text-center">
+        <h5 className="card-title titulo-producto">{producto.titulo}</h5>
+        <p className="card-text categoria-producto">{producto.categoria}</p>
+        <div className="mt-auto d-flex justify-content-center pt-3">
+          <Boton to={`/producto/${producto.id}`} texto="Ver detalle" claseAdicional="btn-success" />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { DetalleProducto } from './paginas/DetalleProducto'
 import Contacto from './paginas/Contacto'
 import Login from './paginas/Login'
 import Retiro from "./paginas/Retiro";
+import './App.css'
 
 function App() {
 
@@ -45,6 +46,13 @@ function App() {
         />
 
       </Routes>
+
+      <footer className="site-footer mt-auto">
+        <div className="container py-4 d-flex flex-column flex-sm-row justify-content-between gap-2">
+          <span className="fw-semibold">Ruta Limpia</span>
+          <span>Pequeñas acciones para un hogar más sostenible.</span>
+        </div>
+      </footer>
     </>
   )
 }
