@@ -22,7 +22,10 @@ function FormularioRetiro() {
         } else if (peso.trim() === "" || !Number.isFinite(pesoNumero) || pesoNumero <= 0){
             alert("Ingresar un peso valido")
             return;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+        } else if (correo.trim() === "") {
+            alert("Debe ingresar un correo");
+            return;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.trim())) {
             alert("Ingresa un correo válido");
             return;
         } else {
